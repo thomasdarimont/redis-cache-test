@@ -27,14 +27,16 @@ public class MockCarRepositoryImpl implements CarRepository {
 	
 	@Override
 	@CachePut(value = "car", key="#car.id")
-	public void insert(Car car) {
+	public Car insert(Car car) {
 		cars.put(car.getId(), car);
+		return car;
 	}
 	
 	@Override
 	@CachePut(value = "car", key = "#car.id")
-	public void update(Car car) {
+	public Car update(Car car) {
 		cars.put(car.getId(), car);
+		return car;
 	}
 	
 	@Override

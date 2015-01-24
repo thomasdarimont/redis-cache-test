@@ -30,14 +30,17 @@ public class Application {
 	public RedisTemplate<Object, Object> redisTemplate() {
 		RedisTemplate<Object, Object> redisTemplate = new RedisTemplate<Object, Object>();
 		redisTemplate.setConnectionFactory(redisConnectionFactory());
+		JsonRedisSerializer serializer = new JsonRedisSerializer();
+		redisTemplate.setKeySerializer(serializer);
+		redisTemplate.setValueSerializer(serializer);
 		return redisTemplate;
 	}
-	
+		
 	@Bean
 	public CacheManager cacheManager() {
 		RedisCacheManager cacheManager = new RedisCacheManager(redisTemplate());
 		Map<String, Long> expires = new HashMap<>();
-		expires.put("car", 60l);
+		expires.put("car", 10l);
 		cacheManager.setExpires(expires);
 		cacheManager.setUsePrefix(true);
 		return cacheManager;
