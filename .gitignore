@@ -1,0 +1,29 @@
+*.class
+*.log
+*.7z
+*.zip
+*.jar
+*~
+target
+.metadata
+*.DS_Store
+pom.xml.versionsBackup
+
+#IntelliJ project files
+*.iml
+.idea/
+atlassian-ide-plugin.xml
+.surefire*
+
+#Eclipse project files
+.project
+.classpath
+.settings
+
+# Vagrant
+vagrant/
+.vagrant/**
+
+# Bower Packages
+build-web/build-tools/src/main/webapp/public/lib/bower*
+pom.xml.versionsBackup
